@@ -1,3 +1,6 @@
+import debugpy
+import os
+
 from celery import shared_task
 
 from weatherdata.data_retrieval_buoy_metie_csv import get_data_from_metie_buoy_in_csv
@@ -8,6 +11,12 @@ from weatherdata.data_retrieval_irishlights import get_data_from_irishlights
 from weatherdata.data_retrieval_buoy_metie import get_data_from_metie_buoy
 
 from django.db.utils import DataError
+
+
+# Setup debugpy
+debugpy.listen(("0.0.0.0", 3001))
+print("Waiting for debugger attach...")
+debugpy.wait_for_client()
 
 
 @shared_task
@@ -34,8 +43,6 @@ def update_metie_forecast():
                 update_coastal_areas(coastal_area, forecast_obj)
     except DataError as e:
         print(f"DataError occurred: {e}")
-
-
 
 
 @shared_task

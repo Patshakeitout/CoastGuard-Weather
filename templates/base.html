@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Greystones Coast Guard Weather</title>
+    <link rel="icon" href="{% static 'weatherdata/CGU_favicon.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'weatherdata/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'team/styles.css' %}">
 </head>
 <body>
     <header>
@@ -26,16 +28,16 @@
                 <li><a href="{% url 'latest_forecast'%}">Forecast</a></li>
             </ul>
         </div>
-                <!-- Add more navigation links here -->
-                <div class="auth-links">
-                    {% if not request.user.is_authenticated %}
-                        <a href="{% url 'login' %}" class="login-link">Login</a>
-                    {% else %}
-                        <span class="user-name">Hello, {{ request.user.username }}</span>
-                        <a href="{% url 'logout' %}" class="logout-link">Logout</a></li>
-                    {% endif %}
-                </div>
-            
+            <!-- Add more navigation links here -->
+            <div class="auth-links">
+                <a href="{% url 'team' %}">Team</a>
+                {% if not request.user.is_authenticated %}
+                    <a href="{% url 'login' %}" class="login-link">Login</a>
+                {% else %}
+                    <span class="user-name">Hello, {{ request.user.username }}</span>
+                    <a href="{% url 'logout' %}" class="logout-link">Logout</a></li>
+                {% endif %}
+            </div> 
         </nav>
     </header>
 
