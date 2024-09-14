@@ -5,6 +5,10 @@ class Home(View):
     def get(self, request):
         return render(request, 'index.html')
     
+class DwdView(View):
+    def get(self, request):
+
+        return render(request, 'dwd.html')
 
 class TeamView(View):
     def get(self, request):

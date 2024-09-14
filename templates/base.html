@@ -30,6 +30,7 @@
         </div>
             <!-- Add more navigation links here -->
             <div class="auth-links">
+                <a href="{% url 'dwd' %}">DWD</a>
                 <a href="{% url 'team' %}">Team</a>
                 {% if not request.user.is_authenticated %}
                     <a href="{% url 'login' %}" class="login-link">Login</a>

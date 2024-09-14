@@ -13,12 +13,6 @@ from weatherdata.data_retrieval_buoy_metie import get_data_from_metie_buoy
 from django.db.utils import DataError
 
 
-# Setup debugpy
-debugpy.listen(("0.0.0.0", 3001))
-print("Waiting for debugger attach...")
-debugpy.wait_for_client()
-
-
 @shared_task
 def update_metie_forecast():
     try:
