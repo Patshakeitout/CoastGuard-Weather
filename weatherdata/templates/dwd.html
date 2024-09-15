@@ -1,50 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %} Team {% endblock %}
+{% block title %} DWD {% endblock %}
 
 {% block content %}
-    <h1>DWD API Itzehoe</h1>
+    <h1>German Weather Service (DWD)</h1>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bootstrap Website</title>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            .btn-custom {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-            .scrollable-window {
-                height: 100vh;
-                overflow-y: auto;
-                background-color: #f8f9fa;
-                border: 1px solid #dee2e6;
-                padding: 15px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3 p-3">
-                    <button class="btn btn-primary btn-custom">Button 1</button>
-                    <button class="btn btn-secondary btn-custom">Button 2</button>
-                    <button class="btn btn-success btn-custom">Button 3</button>
-                </div>
-                <div class="col-md-9 p-3">
-                    <div class="scrollable-window">
-                        <!-- JSON data will be displayed here -->
-                        <pre id="json-display"></pre>
-                    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Buttons container, aligned horizontally -->
+            <div class="col-12 d-flex justify-content-between p-3">
+                <button class="btn btn-primary btn-custom me-2" id="btn-json-display">Display Sea Warnings</button>
+                <button class="btn btn-secondary btn-custom me-2">Save To DB</button>
+                <button class="btn btn-success btn-custom">Let Celery Do The Work</button>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Scrollable window below the buttons, taking most of the width -->
+            <div class="col-md-12 p-3">
+                <div class="scrollable-window">
+                    <pre id="json-display"></pre>
                 </div>
             </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
+    </div>
+    
   
 {% endblock %}

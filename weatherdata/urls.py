@@ -4,7 +4,7 @@ from .views import (SourceFormatListView, SourceFormatDetailView,
                     SourceFormatDeleteView, Home, SourceURLListView,
                     SourceURLDetailView, SourceURLCreateView, SourceURLUpdateView,
                     SourceURLDeleteView, latest_forecast_view, 
-                    TeamView, DwdView)
+                    TeamView, DwdView, CoastWarningsDWDView)
 
 urlpatterns = [
     #path('', Home.as_view(), name='home'),
@@ -24,6 +24,7 @@ urlpatterns = [
     path('latest-forecast/', latest_forecast_view, name='latest_forecast'),
     # Team site
     path('team/', TeamView.as_view(), name='team'),
-    # DWD site (german API)
-    path('dwd/', DwdView.as_view(), name='dwd')
+    # DWD site (German weather service)
+    path('dwd/', DwdView.as_view(), name='dwd'),
+    path('dwdcoastwarnings/', CoastWarningsDWDView.as_view(), name='dwdcoastwarnings' )
 ]
